@@ -1,0 +1,594 @@
+:root[data-theme="white"] {
+  --bg: #ffffff;
+  --bg-soft: #f6f6f6;
+  --text: #171717;
+  --muted: #6f6f6f;
+  --gold: #c9a86a;
+  --gold-soft: #f1e3c6;
+  --border: #e3e3e3;
+  --shadow-soft: 0 14px 45px rgba(0, 0, 0, 0.08);
+}
+
+/* RESET / BASE */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* LAYOUT */
+
+.container {
+  width: min(1120px, 100% - 2.5rem);
+  margin: 0 auto;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+}
+
+/* LOGO IM Dubai Gold Serif */
+
+.logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.logo-mark-serif {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.8rem;
+  letter-spacing: 0.16em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.logo-sub {
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* NAV */
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.25s ease;
+}
+
+.nav a:hover::after,
+.nav a.active::after {
+  width: 100%;
+}
+
+.nav a.active {
+  color: var(--text);
+}
+
+/* THEME TOGGLE */
+
+.theme-toggle {
+  background: transparent;
+  border: 1px solid var(--gold);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  color: var(--gold);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--gold);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* HERO */
+
+.hero-dubai {
+  padding: 4.5rem 0 4rem;
+}
+
+.hero-content {
+  max-width: 720px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--gold-soft);
+  background: #fffaf0;
+  color: var(--gold);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.hero-content h1 {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.subtitle {
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 1.7rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.hero-tags span {
+  font-size: 0.75rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  color: var(--muted);
+}
+
+/* PAGE HERO */
+
+.page-hero {
+  padding: 3rem 0 2rem;
+}
+
+/* SECTIONS */
+
+.section {
+  padding: 3.2rem 0;
+}
+
+.section-title {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 1.9rem;
+  margin-bottom: 0.6rem;
+}
+
+.section-intro {
+  color: var(--muted);
+  max-width: 640px;
+  margin-bottom: 1.8rem;
+}
+
+/* GRIDS */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.6rem;
+}
+
+.two-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.two-columns.reverse {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+}
+
+/* CARDS */
+
+.card-minimal {
+  border-radius: 18px;
+  padding: 1.8rem 1.6rem;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+}
+
+.card-minimal h3 {
+  margin: 0 0 0.6rem;
+  font-size: 1.1rem;
+}
+
+.card-minimal p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* LISTE DORÉE */
+
+.list-gold {
+  list-style: none;
+  padding: 0;
+  margin: 1.2rem 0 0;
+}
+
+.list-gold li {
+  position: relative;
+  padding-left: 1.3rem;
+  margin-bottom: 0.4rem;
+  color: var(--muted);
+}
+
+.list-gold li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--gold);
+}
+
+/* CTA DUBAI */
+
+.cta-dubai {
+  background: #111111;
+  color: #ffffff;
+  padding: 3.2rem 0;
+}
+
+.cta-inner {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.cta-inner h2 {
+  font-family: "Cormorant Garamond", "Times New Roman", serif;
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+}
+
+.cta-inner p {
+  color: #d5d5d5;
+  margin-bottom: 1.5rem;
+}
+
+/* BOUTONS */
+
+.btn-gold,
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.65rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: #ffffff;
+  box-shadow: 0 14px 35px rgba(201, 168, 106, 0.4);
+}
+
+.btn-gold:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 20px 40px rgba(201, 168, 106, 0.5);
+}
+
+.btn-outline-dark {
+  border: 1px solid #222222;
+  background: transparent;
+  color: #222222;
+}
+
+.btn-outline-dark:hover {
+  background: #222222;
+  color: #ffffff;
+}
+
+/* PHOTOS / IMAGES */
+
+.image-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  background: #000;
+}
+
+.photo-luxe {
+  width: 100%;
+  height: 100%;
+  max-height: 320px;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.image-wrapper:hover .photo-luxe {
+  transform: scale(1.03);
+}
+
+/* MAP PLACEHOLDER */
+
+.map-placeholder {
+  border-radius: 18px;
+  border: 1px dashed var(--border);
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--muted);
+  background: var(--bg-soft);
+  font-size: 0.9rem;
+}
+
+/* CONTACT TEXTS */
+
+.contact-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.contact-text {
+  font-size: 0.95rem;
+}
+
+.text-link {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.1rem;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.text-link:hover {
+  border-color: var(--gold);
+}
+
+/* FOOTER */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 2.2rem 0;
+  background: #fafafa;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.footer-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+}
+
+/* PRELOADER – CERCLE DORÉ */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.98);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.6s ease;
+}
+
+.preloader-circle {
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  border: 2px solid rgba(201, 168, 106, 0.3);
+  border-top-color: var(--gold);
+  animation: spin 0.9s linear infinite;
+}
+
+.preloader-hide {
+  opacity: 0;
+}
+
+/* ANIMATIONS */
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SLIDER DUBAI PREMIUM */
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: var(--shadow-soft);
+  margin-top: 1.5rem;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+.slide {
+  min-width: 100%;
+  height: 380px;
+  overflow: hidden;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Boutons */
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.35);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-btn:hover {
+  background: rgba(0,0,0,0.55);
+}
+
+.slider-btn.prev {
+  left: 12px;
+}
+
+.slider-btn.next {
+  right: 12px;
+}
+
+/* Dots */
+
+.slider-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.slider-dots div {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.6);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.slider-dots .active {
+  background: var(--gold);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 800px) {
+  .header-inner {
+    gap: 0.8rem;
+  }
+
+  .nav {
+    display: none; /* simplification mobile pour l’instant */
+  }
+
+  .hero-dubai {
+    padding-top: 3.2rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .two-columns,
+  .two-columns.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .image-wrapper {
+    max-height: 260px;
+  }
+
+  .slide {
+    height: 260px;
+  }
+
+  .footer-inner {
+    text-align: center;
+  }
+}
