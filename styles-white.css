@@ -369,13 +369,22 @@ img {
 /* MAP PLACEHOLDER */
 
 .map-placeholder {
+  overflow: hidden;
   border-radius: 18px;
-  border: 1px dashed var(--border);
-  padding: 3rem 2rem;
-  text-align: center;
-  color: var(--muted);
+  border: 1px solid var(--border);
   background: var(--bg-soft);
-  font-size: 0.9rem;
+}
+
+.map-placeholder iframe {
+  display: block;
+  width: 100%;
+  min-height: 360px;
+  border: 0;
+}
+
+.map-link {
+  display: inline-block;
+  margin-top: 14px;
 }
 
 /* CONTACT TEXTS */
